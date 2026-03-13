@@ -5,7 +5,7 @@ enum PushNotificationsPermissionWatcherFunctions {
 
     class Watch: BridgeFunction {
         func execute(parameters: [String: Any]) throws -> [String: Any] {
-            let eventClass = "GTCrais\\Native\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
+            let eventClass = "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
 
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                 // Verify actual status before emitting

@@ -1,6 +1,6 @@
 <?php
 
-namespace GTCrais\Native\PushNotificationsPermissionWatcher;
+namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher;
 
 class PushNotificationsPermissionWatcher
 {

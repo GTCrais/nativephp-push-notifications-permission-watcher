@@ -76,7 +76,7 @@ object PushNotificationsPermissionWatcherFunctions {
 
     class Watch(private val activity: FragmentActivity) : BridgeFunction {
         override fun execute(parameters: Map<String, Any>): Map<String, Any> {
-            val eventClass = "GTCrais\\Native\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
+            val eventClass = "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
                 val enabled = NotificationManagerCompat.from(activity).areNotificationsEnabled()

@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "GTCrais\\Native\\PushNotificationsPermissionWatcher\\": "src/"
+            "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "GTCrais\\Native\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider"
+                "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider"
             ]
         },
         "nativephp": {

@@ -13,7 +13,7 @@ composer require gtcrais/nativephp-push-notifications-permission-watcher
 ### PHP (Livewire/Blade)
 
 ```php
-use GTCrais\Native\PushNotificationsPermissionWatcher\Facades\PushNotificationsPermissionWatcher;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Facades\PushNotificationsPermissionWatcher;
 
 // Request permission (shows native dialog if not yet determined)
 PushNotificationsPermissionWatcher::watch();
@@ -43,7 +43,7 @@ await PushNotificationsPermissionWatcher.watch();
 
 ```php
 use Native\Mobile\Attributes\OnNative;
-use GTCrais\Native\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
 
 #[OnNative(PushNotificationsPermissionChanged::class)]
 public function handlePushNotificationsPermissionChanged(string $status)
@@ -55,7 +55,7 @@ public function handlePushNotificationsPermissionChanged(string $status)
 ### Laravel Event Listener
 
 ```php
-use GTCrais\Native\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
 
 Event::listen(PushNotificationsPermissionChanged::class, function (PushNotificationsPermissionChanged $event) {
     // $event->status is 'granted' or 'denied'

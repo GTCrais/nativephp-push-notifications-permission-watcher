@@ -1,6 +1,6 @@
 <?php
 
-namespace GTCrais\Native\PushNotificationsPermissionWatcher\Commands;
+namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Commands;
 
 use Native\Mobile\Plugins\Commands\NativePluginHookCommand;
 

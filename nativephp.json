@@ -62,9 +62,9 @@
     },
     "secrets": [],
     "events": [
-        "GTCrais\\Native\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
+        "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
     ],
-    "service_provider": "GTCrais\\Native\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider",
+    "service_provider": "GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider",
     "hooks": {
         "copy_assets": "nativephp:push-notifications-permission-watcher:copy-assets"
     }

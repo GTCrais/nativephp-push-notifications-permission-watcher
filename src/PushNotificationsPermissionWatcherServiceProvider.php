@@ -1,9 +1,9 @@
 <?php
 
-namespace GTCrais\Native\PushNotificationsPermissionWatcher;
+namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher;
 
 use Illuminate\Support\ServiceProvider;
-use GTCrais\Native\PushNotificationsPermissionWatcher\Commands\CopyAssetsCommand;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Commands\CopyAssetsCommand;
 
 class PushNotificationsPermissionWatcherServiceProvider extends ServiceProvider
 {

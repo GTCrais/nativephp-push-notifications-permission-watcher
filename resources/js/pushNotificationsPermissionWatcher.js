@@ -48,7 +48,7 @@ async function bridgeCall(method, params = {}) {
  * Event constants for use with NativePHP's On() listener.
  */
 export const PushNotificationsPermissionEvents = {
-    PushNotificationsPermissionChanged: 'GTCrais\\Native\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged'
+    PushNotificationsPermissionChanged: 'GTCrais\\Native\\Mobile\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged'
 };
 
 /**

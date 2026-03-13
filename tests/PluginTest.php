@@ -115,7 +115,7 @@ describe('PHP Classes', function () {
         expect(file_exists($file))->toBeTrue();
 
         $content = file_get_contents($file);
-        expect($content)->toContain('namespace GTCrais\Native\PushNotificationsPermissionWatcher');
+        expect($content)->toContain('namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher');
         expect($content)->toContain('class PushNotificationsPermissionWatcherServiceProvider');
     });
 
@@ -124,7 +124,7 @@ describe('PHP Classes', function () {
         expect(file_exists($file))->toBeTrue();
 
         $content = file_get_contents($file);
-        expect($content)->toContain('namespace GTCrais\Native\PushNotificationsPermissionWatcher\Facades');
+        expect($content)->toContain('namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Facades');
         expect($content)->toContain('class PushNotificationsPermissionWatcher extends Facade');
     });
 
@@ -133,7 +133,7 @@ describe('PHP Classes', function () {
         expect(file_exists($file))->toBeTrue();
 
         $content = file_get_contents($file);
-        expect($content)->toContain('namespace GTCrais\Native\PushNotificationsPermissionWatcher');
+        expect($content)->toContain('namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher');
         expect($content)->toContain('class PushNotificationsPermissionWatcher');
     });
 });

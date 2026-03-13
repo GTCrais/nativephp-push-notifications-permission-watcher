@@ -14,7 +14,7 @@ Use the `PushNotificationsPermissionWatcher` facade:
 
 @verbatim
 <code-snippet name="Using PushNotificationsPermissionWatcher Facade" lang="php">
-use GTCrais\Native\PushNotificationsPermissionWatcher\Facades\PushNotificationsPermissionWatcher;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Facades\PushNotificationsPermissionWatcher;
 
 // Request permission (shows native dialog if not yet determined)
 PushNotificationsPermissionWatcher::watch();
@@ -36,7 +36,7 @@ $status = PushNotificationsPermissionWatcher::checkPermission(); // 'granted', '
 @verbatim
 <code-snippet name="Listening for PushNotificationsPermissionChanged Events" lang="php">
 use Native\Mobile\Attributes\OnNative;
-use GTCrais\Native\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
+use GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Events\PushNotificationsPermissionChanged;
 
 #[OnNative(PushNotificationsPermissionChanged::class)]
 public function handlePushNotificationsPermissionChanged(string $status)

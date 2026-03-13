@@ -1,6 +1,6 @@
 <?php
 
-namespace GTCrais\Native\PushNotificationsPermissionWatcher\Events;
+namespace GTCrais\Native\Mobile\PushNotificationsPermissionWatcher\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
