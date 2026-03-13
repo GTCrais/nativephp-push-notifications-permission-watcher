@@ -62,6 +62,134 @@ Event::listen(PushNotificationsPermissionChanged::class, function (PushNotificat
 });
 ```
 
+## Full Code Example
+
+`BaseLayout.vue`
+```js
+mounted() {
+	PushNotificationService.registerTokenGeneratedListener();
+	PushNotificationService.registerPushNotificationsPermissionChangeListener();
+}
+```
+
+`PushNotificationService.js`
+```js
+import { PushNotifications, On, Events } from '#nativephp';
+import { PushNotificationsPermissionWatcher, PushNotificationsPermissionEvents } from '@gtcrais/nativephp-push-notifications-permission-watcher';
+import { useAuthStore } from "@/stores/auth-store.js";
+import axios from "axios";
+import { useAppDataStore } from "@/stores/app-data-store.js";
+
+export default class PushNotificationService
+{
+	static async enroll()
+	{
+		await PushNotificationsPermissionWatcher.watch();
+	}
+
+	static async refreshPermissionStatus()
+	{
+		const status = await PushNotifications.checkPermission();
+		useAuthStore().setPushNotificationsPermissionStatus(status);
+	}
+
+	static async getTokenAndStore()
+	{
+		const token = await PushNotifications.getToken();
+
+		if (token) {
+			await this.storeToken(token);
+		}
+	}
+
+	static async storeToken(token)
+	{
+		await axios.post('/push-notifications-token', { token })
+			.catch((error) => {
+			    console.log('[LC]', JSON.stringify(error));
+			});
+	}
+
+	static async deleteToken()
+	{
+		await axios.delete('/push-notifications-token');
+	}
+
+	static registerPushNotificationsPermissionChangeListener()
+	{
+		On(PushNotificationsPermissionEvents.PushNotificationsPermissionChanged, async ({ status }) => {
+			setTimeout(async () => {
+				await this.refreshPermissionStatus();
+
+				if (this.isGranted) {
+					// Now that the permission is granted, this will just go and fetch 
+                    // the token, then fire the TokenGenerated event which we listen to
+					await PushNotifications.enroll();
+				}
+			}, 200);
+		});
+	}
+
+	static registerTokenGeneratedListener()
+	{
+		On(Events.PushNotification.TokenGenerated, async ({ token }) => {
+			await this.handleTokenGenerated(token);
+		});
+	}
+
+	static async handleTokenGenerated(token)
+	{
+		if (token) {
+			await this.storeToken(token);
+		}
+	}
+
+	static get permissionStatus()
+	{
+		return useAuthStore().pushNotificationsPermissionStatus;
+	}
+
+	static get isNotDetermined()
+	{
+		return this.permissionStatus === 'not_determined';
+	}
+
+	static get isDetermined()
+	{
+		return !this.isNotDetermined;
+	}
+
+	static get isDenied()
+	{
+		return this.permissionStatus === 'denied';
+	}
+
+	static get isGranted()
+	{
+		return (this.isDetermined && !this.isDenied);
+	}
+}
+```
+
+`auth-store.js`
+```js
+export const useAuthStore = defineStore('auth', {
+	state: () => ({
+		_pushNotificationsPermissionStatus: null
+	}),
+
+	getters: {
+		pushNotificationsPermissionStatus: (state) => state._pushNotificationsPermissionStatus,
+	},
+
+	actions: {
+		setPushNotificationsPermissionStatus(status) {
+			this._pushNotificationsPermissionStatus = status;
+		}
+	}
+});
+```
+
 ## License
 
 MIT
