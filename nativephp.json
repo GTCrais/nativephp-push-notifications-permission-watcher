@@ -1,0 +1,71 @@
+{
+    "name": "gtcrais/nativephp-push-notifications-permission-watcher",
+    "version": "1.0.0",
+    "description": "NativePHP Mobile plugin which emits an event when the push notifications permission changes",
+    "namespace": "PushNotificationsPermissionWatcher",
+    "keywords": [],
+    "category": "utilities",
+    "license": "MIT",
+    "pricing": {
+        "type": "free"
+    },
+    "author": {
+        "name": "Your Name",
+        "email": "you@example.com",
+        "url": ""
+    },
+    "homepage": "",
+    "repository": "",
+    "funding": [],
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "icon": "resources/icon.png",
+    "screenshots": [],
+    "bridge_functions": [
+        {
+            "name": "PushNotificationsPermissionWatcher.Watch",
+            "android": "com.gtcrais.native.push_notifications_permission_watcher.PushNotificationsPermissionWatcherFunctions.Watch",
+            "ios": "PushNotificationsPermissionWatcherFunctions.Watch",
+            "description": "Request push notification permission and return the result"
+        },
+        {
+            "name": "PushNotificationsPermissionWatcher.CheckPermission",
+            "android": "com.gtcrais.native.push_notifications_permission_watcher.PushNotificationsPermissionWatcherFunctions.CheckPermission",
+            "ios": "PushNotificationsPermissionWatcherFunctions.CheckPermission",
+            "description": "Check the current push notification permission status"
+        }
+    ],
+    "android": {
+        "permissions": ["android.permission.POST_NOTIFICATIONS"],
+        "repositories": [],
+        "dependencies": {
+            "implementation": []
+        },
+        "activities": [],
+        "services": [],
+        "receivers": [],
+        "providers": []
+    },
+    "ios": {
+        "permissions": [],
+        "repositories": [],
+        "dependencies": {
+            "swift_packages": [],
+            "pods": []
+        }
+    },
+    "assets": {
+        "android": [],
+        "ios": []
+    },
+    "secrets": [],
+    "events": [
+        "GTCrais\\Native\\PushNotificationsPermissionWatcher\\Events\\PushNotificationsPermissionChanged"
+    ],
+    "service_provider": "GTCrais\\Native\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider",
+    "hooks": {
+        "copy_assets": "nativephp:push-notifications-permission-watcher:copy-assets"
+    }
+}

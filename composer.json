@@ -1,0 +1,43 @@
+{
+    "name": "gtcrais/nativephp-push-notifications-permission-watcher",
+    "description": "NativePHP Mobile plugin which emits an event when the push notifications permission changes",
+    "version": "1.0.0",
+    "type": "nativephp-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "you@example.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "nativephp/mobile": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GTCrais\\Native\\PushNotificationsPermissionWatcher\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GTCrais\\Native\\PushNotificationsPermissionWatcher\\PushNotificationsPermissionWatcherServiceProvider"
+            ]
+        },
+        "nativephp": {
+            "manifest": "nativephp.json"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0"
+    },
+    "scripts": {
+        "test": "pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
